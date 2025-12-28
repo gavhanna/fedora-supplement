@@ -1,0 +1,11 @@
+# Log files
+*.log
+
+# Node version manager
+.nvmrc
+nvm_version
+.node-version
+
+# Local temporary files
+/temp/
+/tmp/

@@ -1,0 +1,10 @@
+# This file lists packages to be installed by the dnf.sh script.
+# Add one package name per line.
+
+neovim
+fzf
+zoxide
+fastfetch
+btop
+fd
+gnome-shell-extension-pop-shell
