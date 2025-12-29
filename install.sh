@@ -21,7 +21,7 @@ bash "$SCRIPT_DIR/scripts/docker.sh"
 bash "$SCRIPT_DIR/scripts/nvm.sh"
 bash "$SCRIPT_DIR/scripts/starship.sh"
 bash "$SCRIPT_DIR/scripts/lazygit.sh"
-
+bash "$SCRIPT_DIR/scripts/opencode.sh"
 # --- Finalization ---
 
 echo " "
