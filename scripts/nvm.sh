@@ -5,25 +5,31 @@
 set -e
 
 echo " "
-echo "Installing NVM (Node Version Manager)..."
+echo "Checking NVM installation..."
 
-# Download and run the nvm installation script
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+
+# Only install NVM if not already present
+if [ -d "$NVM_DIR" ]; then
+    echo "NVM is already installed in $NVM_DIR."
+else
+    echo "Installing NVM (Node Version Manager)..."
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+fi
 
 # Source nvm to make it available in the current script
-export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # Verify nvm installation
 if ! command -v nvm &> /dev/null
 then
-    echo "nvm could not be found after installation. Please check your shell configuration."
+    echo "nvm could not be found. Please check your shell configuration."
     exit 1
 fi
 
 
-echo "Installing latest LTS version of Node.js..."
+echo "Checking Node.js LTS version..."
 nvm install --lts
 
 # Set the LTS version as the default
@@ -33,8 +39,13 @@ echo "Node.js LTS installed."
 node -v
 npm -v
 
-echo "Installing Gemini CLI via npm..."
-npm install -g @google/gemini-cli
+echo "Checking Gemini CLI..."
+if npm list -g @google/gemini-cli --depth=0 >/dev/null 2>&1; then
+    echo "Gemini CLI is already installed."
+else
+    echo "Installing Gemini CLI via npm..."
+    npm install -g @google/gemini-cli
+fi
 
-echo "NVM, Node.js, and Gemini CLI installed successfully."
+echo "NVM, Node.js, and Gemini CLI setup complete."
 echo "Please restart your terminal session for NVM to be fully available."
