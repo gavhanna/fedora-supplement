@@ -1,4 +1,4 @@
-[/]
+[org/gnome/desktop/wm/keybindings]
 close=['<Super>w']
 move-to-workspace-1=['<Shift><Super>1']
 move-to-workspace-2=['<Shift><Super>2']
@@ -13,38 +13,39 @@ switch-to-workspace-6=['<Super>6']
 switch-to-workspace-7=['<Super>7']
 switch-to-workspace-8=['<Super>8']
 switch-to-workspace-9=['<Super>9']
-[/]
+
+[org/gnome/settings-daemon/plugins/media-keys]
 custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/']
 email=@as []
 home=['<Shift><Super>f']
 www=['<Shift><Super>b']
 
-[custom-keybindings/custom0]
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
 binding='<Super>Return'
 command='ghostty'
 name='Launch Ghostty'
 
-[custom-keybindings/custom1]
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1]
 binding='<Shift><Super>h'
 command='launch-pwa http://192.168.1.5:8123'
 name='Launch Home Assistant'
 
-[custom-keybindings/custom2]
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2]
 binding='<Shift><Super>p'
 command='launch-pwa https://auth.ente.io/'
 name='Launch Ente Auth'
 
-[custom-keybindings/custom3]
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3]
 binding='<Shift><Super>e'
 command='launch-pwa https://mail.google.com'
 name='Launch Gmail'
 
-[custom-keybindings/custom4]
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4]
 binding='<Shift><Alt><Super>e'
 command='launch-pwa https://mail.proton.me'
 name='Launch Protonmail'
 
-[custom-keybindings/custom5]
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5]
 binding='<Shift><Super>a'
 command='launch-pwa https://gemini.google.com'
 name='Launch Gemini'
