@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# 1. Define Candidate Browsers
+# Vivaldi Flatpak is usually 'com.vivaldi.Vivaldi.desktop' or similar.
+CANDIDATES=(
+  "com.vivaldi.Vivaldi.desktop"
+  "vivaldi-stable.desktop"
+  "vivaldi.desktop"
+  "google-chrome.desktop"
+  "brave-browser.desktop"
+  "chromium-browser.desktop"
+)
+
+# 2. Find the Desktop File
+TARGET_DESKTOP=$(xdg-settings get default-web-browser)
+
+# If default is Firefox or missing, search candidates
+if [[ "$TARGET_DESKTOP" == *"firefox"* ]] || [[ -z "$TARGET_DESKTOP" ]]; then
+  for candidate in "${CANDIDATES[@]}"; do
+    if ls ~/.local/share/applications/"$candidate" \
+      /usr/share/applications/"$candidate" \
+      /var/lib/flatpak/exports/share/applications/"$candidate" 1>/dev/null 2>&1; then
+      TARGET_DESKTOP="$candidate"
+      break
+    fi
+  done
+fi
+
+# 3. Locate the actual file on disk
+DESKTOP_PATH=$(find ~/.local/share/applications /usr/share/applications /var/lib/flatpak/exports/share/applications -name "$TARGET_DESKTOP" 2>/dev/null | head -n 1)
+
+if [ -z "$DESKTOP_PATH" ]; then
+  # Fallback: just try running vivaldi directly if we can't find the file
+  setsid flatpak run com.vivaldi.Vivaldi --app="$1" >/dev/null 2>&1 &
+  exit 0
+fi
+
+# 4. Extract Command and Clean it
+# We grab the Exec line, remove 'Exec=', remove quotes, and crucially remove field codes like @@u, %U, %u
+EXECUTABLE=$(grep "^Exec=" "$DESKTOP_PATH" | head -n 1 | sed 's/^Exec=//' | sed 's/%.*//' | sed 's/@@.*//' | tr -d '"')
+
+# 5. Launch Silently in Background
+# 'setsid' detaches it from the terminal so your prompt returns immediately
+if [ -n "$EXECUTABLE" ]; then
+  setsid $EXECUTABLE --app="$1" >/dev/null 2>&1 &
+else
+  echo "Error parsing desktop file."
+  exit 1
+fi
