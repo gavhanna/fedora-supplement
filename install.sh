@@ -22,6 +22,7 @@ bash "$SCRIPT_DIR/scripts/nvm.sh"
 bash "$SCRIPT_DIR/scripts/starship.sh"
 bash "$SCRIPT_DIR/scripts/lazygit.sh"
 bash "$SCRIPT_DIR/scripts/opencode.sh"
+bash "$SCRIPT_DIR/scripts/keybindings.sh"
 # --- Finalization ---
 
 echo " "
