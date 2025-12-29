@@ -7,9 +7,7 @@ set -e
 echo " "
 echo "Setting up Docker repository and installing..."
 
-sudo dnf -y install dnf-plugins-core
-sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
-
+sudo curl https://download.docker.com/linux/fedora/docker-ce.repo -o /etc/yum.repos.d/docker-ce.repo
 sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 echo "Starting and enabling Docker service..."

@@ -5,9 +5,9 @@
 set -e
 
 echo " "
-echo "Enabling COPR repository for lazygit and installing..."
+echo "Enabling COPR repository for Ghostty and installing..."
 
-dnf copr enable scottames/ghostty
-dnf install -y ghostty
+sudo dnf copr enable -y scottames/ghostty
+sudo dnf install -y ghostty
 
-echo "Lazygit installed successfully."
+echo "Ghostty installed successfully."
