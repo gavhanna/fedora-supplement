@@ -20,7 +20,7 @@ switch-to-workspace-8=['<Super>8']
 switch-to-workspace-9=['<Super>9']
 
 [org/gnome/settings-daemon/plugins/media-keys]
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/']
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/']
 email=@as []
 home=['<Shift><Super>f']
 www=['<Shift><Super>b']
@@ -54,3 +54,8 @@ name='Launch Protonmail'
 binding='<Shift><Super>a'
 command='launch-pwa https://gemini.google.com'
 name='Launch Gemini'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6]
+binding='<Shift><Super>m'
+command='launch-pwa https://web.whatsapp.com'
+name='Launch Whatsapp'
