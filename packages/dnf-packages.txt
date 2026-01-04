@@ -8,3 +8,4 @@ fastfetch
 btop
 fd
 gnome-shell-extension-pop-shell
+lsd
